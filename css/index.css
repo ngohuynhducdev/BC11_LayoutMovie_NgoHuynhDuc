@@ -1,0 +1,486 @@
+/* HEADER */
+header {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+#movieNavbar .navbar-nav {
+  border-bottom: 1px solid #ffffff;
+}
+
+#movieNavbar .navbar-nav .nav-item {
+  font-size: 1rem;
+  letter-spacing: 2px;
+  color: white;
+  padding: 10px 15px;
+  text-transform: uppercase;
+  font-weight: bold;
+
+  /* set vi tri position */
+  position: relative;
+}
+
+#movieNavbar .navbar-nav .nav-item:after {
+  content: "";
+  display: block;
+  height: 2px;
+
+  /* set width ve 0 để tạo hover */
+  width: 0;
+  /* #fbbd61,#ec7532 */
+  background: linear-gradient(to right, #fbbd61, #ec7532);
+  box-shadow: 0 0 20px 0 #fbbd61;
+
+  /* set vị trí position */
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  transition: all 0.5s;
+}
+
+#movieNavbar .navbar-nav .nav-item:hover:after {
+  width: 100%;
+}
+
+#movieNavbar .navbar-nav .nav-item.active:after {
+  width: 100%;
+}
+
+/* CAROUSEL */
+#movieCarousel .carousel-caption {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: left;
+}
+
+#movieCarousel .carousel-caption .pg {
+  font-size: 13px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  padding: 10px;
+  font-weight: bold;
+}
+
+#movieCarousel .carousel-caption .btn-trailer {
+  background: linear-gradient(to right, #fbbd61, #ec7532);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 40px;
+
+  /* set vị trí cho thẻ cha */
+  position: relative;
+
+  /* che những phần dư ra khỏi button */
+  overflow: hidden;
+}
+
+#movieCarousel .carousel-caption .btn-trailer::before {
+  content: "";
+  height: 100%;
+  padding: 20px 40px;
+  background-color: #ec7532;
+
+  /* set width về 0 để tạo hover */
+  width: 0;
+
+  /* tạo độ xéo cho background */
+  transform: skew(30deg);
+  position: absolute;
+  top: 0;
+  left: -90px;
+
+  /* tạo hiệu ứng mượt */
+  transition: all 0.5s;
+
+  /* độ ưu tiên hiển thị */
+  z-index: 0;
+}
+
+#movieCarousel .carousel-caption .btn-trailer:hover::before {
+  width: 150%;
+}
+
+#movieCarousel .carousel-caption .btn-trailer i,
+#movieCarousel .carousel-caption .btn-trailer span {
+  z-index: 1;
+
+  /* set vị trí cho icon và text */
+  position: relative;
+}
+
+#movieCarousel .carousel-indicators {
+  left: 50%;
+  transform: translateX(-50%);
+
+  /* ghi đè lên css của thư viện BS4 */
+  justify-content: left;
+  padding-left: 15px;
+  margin-right: 0;
+  margin-left: 0;
+}
+
+#movieCarousel .carousel-indicators li {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+
+  border: 2px solid #ffffff;
+  background-color: transparent;
+}
+
+#movieCarousel .carousel-indicators li.active {
+  background-color: white;
+
+  /* đổ màu từ border cho tới content */
+  background-clip: border-box;
+}
+
+.carousel-item p:first-child {
+  color: #fbbd61;
+}
+/* NEW IN */
+
+#newIn {
+  padding-top: 80px;
+}
+
+.movie-title,
+.section-title {
+  color: #ec7532;
+  font-size: 25px;
+  letter-spacing: 2px;
+  margin-bottom: 40px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.movie-title::after,
+.section-title::after {
+  content: "";
+  width: 200px;
+  height: 3px;
+  background-image: linear-gradient(to right, #fbbd61, #ec7532);
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+}
+
+.newIn__img {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.newIn__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  /* tạo background cho overlay */
+  background: linear-gradient(to top, #ec7532, #fbbd61);
+
+  width: 100%;
+  height: 100%;
+
+  opacity: 0.5;
+
+  /* tạo hiệu ứng */
+  transform: skew(30deg) translateX(-145%);
+
+  /* tạo hiệu ứng chuyển động mượt 
+    */
+  transition: all 0.5s;
+}
+
+.newIn__img:hover .newIn__overlay {
+  width: 200%;
+  opacity: 0.8;
+  transform: skew(30deg) translateX(-25%);
+}
+
+.newIn__detail {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  color: white;
+
+  /* canh chỉnh nội dung vào giữa item */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  /* tạo hiệu ứng hover */
+  opacity: 0;
+  transform: scale(0.7);
+  transition: all 0.5s;
+}
+
+.newIn__img:hover .newIn__detail {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.newIn__detail i {
+  width: 80px;
+  height: 80px;
+  line-height: 73px;
+  font-size: 20px;
+  border-radius: 50%;
+  border: 4px solid #fff;
+  cursor: pointer;
+}
+
+.newIn__detail a {
+  font-size: 14px;
+  letter-spacing: 2px;
+}
+
+.newIn__detail span {
+  font-size: 16px;
+}
+
+.newIn__text h2 {
+  font-size: 22px;
+  margin-top: 10px;
+}
+.newIn__icon i {
+  color: gray;
+}
+.newIn__icon .newIn__icon--star {
+  color: #fbbd61;
+}
+
+/* SHOWTIME */
+
+#showTime {
+  padding: 80px 0;
+}
+
+#showTime .nav-tabs .nav-link {
+  position: relative;
+  color: #4a4a4a;
+  padding: 10px 30px;
+}
+
+#showTime .nav-tabs .nav-link::before {
+  content: "";
+  width: 0px;
+  height: 4px;
+  background: linear-gradient(to right, #fbbd61, #ec7532);
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  transition: 0.5s all;
+}
+
+#showTime .nav-tabs .nav-link.active,
+#showTime .nav-tabs .nav-link:hover {
+  border-color: white white #dee2e6;
+}
+
+#showTime .nav-tabs .nav-link.active::before,
+#showTime .nav-tabs .nav-link:hover::before {
+  width: 100%;
+}
+
+#showTime img {
+  border-radius: 10px;
+}
+
+.showtime__list {
+  color: #717171;
+}
+
+.showtime__detail > span {
+  font-size: 14px;
+  color: #ec7532;
+  letter-spacing: 2px;
+}
+
+.showtime__detail > h1 {
+  font-weight: 300;
+  font-size: 24px;
+  letter-spacing: 1px;
+}
+
+.showtime__detail > p {
+  font-size: 16px;
+}
+.showtime__detail > a {
+  color: #ec7532;
+  letter-spacing: 3px;
+  font-size: 12px;
+}
+
+.showtime__list i,
+.showtime__list span {
+  font-size: 14px;
+}
+
+.showtime__length span {
+  width: 35px;
+  height: 35px;
+  line-height: 35px;
+  border-radius: 50%;
+}
+
+.showtime__list button {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.tab-content .tab-pane {
+  position: relative;
+}
+.tab-content .tab-pane .row ::after {
+  content: "";
+  border-bottom: 2px solid gray;
+  width: 100%;
+  height: 50px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  transform: translateY(20px);
+}
+
+.tab-content .tab-pane .row:last-of-type ::after {
+  width: 0;
+}
+
+.video-play {
+  width: 80px;
+  height: 80px;
+  font-size: 20px;
+  border-radius: 50%;
+  line-height: 80px;
+  cursor: pointer;
+  border: 3px solid white;
+  z-index: 2000;
+}
+
+/* COMING */
+#comingSoon {
+  background-color: #000;
+}
+
+.coming__bg {
+  padding: 80px 0;
+  background: url(../images/slide-3.png) no-repeat center center;
+  background-size: cover;
+}
+
+.coming__bg .section-title {
+  color: white;
+}
+
+.coming__detail > span {
+  font-size: 14px;
+  color: #ec7532;
+}
+
+.coming__detail h1 {
+  font-weight: 300;
+  font-size: 34px;
+}
+
+.coming__detail .fa-star {
+  font-size: 14px;
+  color: #fbbd61;
+}
+.coming__date {
+  opacity: 0.75;
+  font-size: 14px;
+}
+
+.coming__detail a {
+  color: #ec7532;
+  letter-spacing: 3px;
+}
+
+.coming__trailer {
+  position: relative;
+}
+
+.coming__trailer .video-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-color: #ec7532;
+  font-size: 20px;
+  transition: 0.5s all;
+}
+
+.coming__trailer .video-play:hover {
+  transform: translate(-50%, -50%) scale(0.9);
+}
+
+.coming__item {
+  text-align: center;
+  color: white;
+  opacity: 0.4;
+  transition: 0.5s all;
+}
+
+.coming__item:hover,
+.coming__item.active {
+  opacity: 1;
+}
+
+.coming__item img {
+  border-radius: 10px;
+}
+
+.coming__item span {
+  font-size: 14px;
+  opacity: 0.75;
+}
+
+.coming__list {
+  padding: 40px 0;
+}
+/* CONTACT */
+
+#contact span:first-of-type {
+  color: black;
+  font-size: 26px;
+}
+
+#contact span:last-of-type {
+  color: #ec7532;
+  font-size: 46px;
+  font-weight: bold;
+}
+/* FOOTER */
+footer .footer__list .footer__item h2 {
+  color: #ec7532;
+  font-size: 24px;
+  font-weight: normal;
+}
+
+footer .footer__list .footer__item ul li {
+  cursor: pointer;
+  color: white;
+  transition: 0.5s all;
+}
+
+footer .footer__list .footer__item ul li:hover {
+  color: #fbbd61;
+}
+
+.footer__list::after {
+  content: "";
+  width: 100%;
+  height: 30px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 50px;
+}
